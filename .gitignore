@@ -26,3 +26,6 @@ dependency-reduced-pom.xml
 *.ipr 
 *.iws 
 *.idea
+
+# jupyter
+.ipynb_checkpoints/
