@@ -1,13 +1,6 @@
 #!/usr/bin/env python
 # _*_coding:utf-8_*_
 
-"""
-@Time :    2019/4/20 12:49
-@Author:  liling
-@File: Lesson03_titanic_random_choice.py
-@Software: PyCharm
-"""
-
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
@@ -23,8 +16,8 @@ age_with_fares = content[
     ]
 sub_fare = age_with_fares['Fare']
 sub_age = age_with_fares['Age']
-plt.scatter(sub_age, sub_fare)
-plt.show()
+# plt.scatter(sub_age, sub_fare)
+# plt.show()
 
 
 # fit a line
@@ -45,11 +38,24 @@ def loss(y, yhat):
 
 
 def derivate_k(y, yhat, x):
+    """
+    loss 对k求导 loss = | y - (k * x + b)|
+    :param y:
+    :param yhat:
+    :param x:
+    :return:
+    """
     abs_values = [1 if (y_i - yhat_i) > 0 else -1 for y_i, yhat_i in zip(y, yhat)]
     return np.sum([a * -x_i for a, x_i in zip(abs_values, x)])
 
 
 def derivate_b(y, yhat):
+    """
+    loss 对b求导 loss = | y - (k * x + b)|
+    :param y:
+    :param yhat:
+    :return:
+    """
     abs_values = [1 if (y_i - yhat_i) > 0 else -1 for y_i, yhat_i in zip(y, yhat)]
     return np.sum([-a for a in abs_values])
 
@@ -61,12 +67,8 @@ b_hat = random.random() * 20 - 10
 learning_rate = 1e-3
 
 
-def step():
-    return random.random()
-
-
 while loop_times > 0:
-    #  update parameters
+    #  update parameters -1是表示需要梯度下降
     k_delta = -1 * learning_rate * derivate_k(sub_fare, func(sub_age, k_hat, b_hat), sub_age)
     b_delta = -1 * learning_rate * derivate_b(sub_fare, func(sub_age, k_hat, b_hat))
     k_hat += k_delta
@@ -83,10 +85,10 @@ while loop_times > 0:
     loop_times -= 1
 
 # plot best fit line
-plt.scatter(sub_age, sub_fare)
-plt.plot(sub_age, func(sub_age, k_hat, b_hat), c='r')
-plt.show()
+# plt.scatter(sub_age, sub_fare)
+# plt.plot(sub_age, func(sub_age, k_hat, b_hat), c='r')
+# plt.show()
 
 # Plot error rate converge
-# plt.plot(range(len(losses[:100])), losses[:100])
-# plt.show()
+plt.plot(range(len(losses[:100])), losses[:100])
+plt.show()

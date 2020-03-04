@@ -1,13 +1,6 @@
 #!/usr/bin/env python
 # _*_coding:utf-8_*_
 
-"""
-@Time :    2019/4/20 12:49
-@Author:  liling
-@File: Lesson03_titanic_random_choice.py
-@Software: PyCharm
-"""
-
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
@@ -34,7 +27,6 @@ def func(age, k, b):
 
 def loss(y, yhat):
     """
-    mean square loss
     :param y: the real fears
     :param yhat: the predict fears
     :return: how good is the estimated fares
@@ -50,8 +42,6 @@ min_times = []
 
 while loop_times > 0:
     # random choice  parameter k and b
-    # k_hat = random.randint(-10, 10)
-    # b_hat = random.randint(-10, 10)
     k_hat = random.random() * 20 - 10
     b_hat = random.random() * 20 - 20
 

@@ -1,13 +1,6 @@
 #!/usr/bin/env python
 # _*_coding:utf-8_*_
 
-"""
-@Time :    2019/4/20 12:49
-@Author:  liling
-@File: Lesson03_titanic_random_choice.py
-@Software: PyCharm
-"""
-
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
@@ -93,7 +86,7 @@ while loop_times > 0:
 
     loop_times -= 1
 
-# plot best fit line
+# plot line
 plt.scatter(sub_age, sub_fare)
 plt.plot(sub_age, func(sub_age, best_k, best_b), c='r')
 plt.show()
