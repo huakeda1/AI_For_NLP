@@ -1,4 +1,3 @@
 # AI_For_NLP
-- NLP Course Assignments
 
-
+![](./Lesson01_SearchBasedAndRuleBasedMethods/image/course.png)
